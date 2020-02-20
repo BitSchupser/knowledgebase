@@ -1,0 +1,20 @@
+
+plugins {
+    id "de.undercouch.download" version "4.0.0"
+    id "com.github.ben-manes.versions" version "0.27.0"
+    id "groovy"
+}
+
+println "compiling with Java ${System.getProperty("java.version")} at ${new Date().format("HH:mm:ss")}"
+
+//tag::initExisting[]
+task initExisting(
+        description: 'Install template configuration file and helper scripts in newDocDir',
+        group: 'docToolchain'
+) doLast {
+    copy {
+        from "${projectDir}/template_config"
+        into newDocDir
+    }
+}
+//end::initExisting[]

@@ -1,0 +1,43 @@
+= Powershell
+
+== Strings
+
+[source,powershell]
+----
+$multiline = @"mul
+line"@
+
+$variable = "Hallo"
+$variableGlobbing = "$hallo welt"
+----
+
+== Scripting Hints
+
+Stop on first error:
+
+[source,powershell]
+----
+# Stop on first error
+$ErrorActionPreference = "Stop"
+
+#Powershell Version
+$PSVersionTable
+----
+
+== File handling
+
+[source,powershell]
+----
+$path [IO.Path]::Combine('C:\', 'Foo', 'Bar')
+$content = Get-Content "test.txt"
+Set-Content -Path "test.txt" -Value "hallo welt"
+----
+
+== Functions
+
+[source,powershell]
+----
+function Say-Hello {
+    param($name)
+    Write-Output "Hello $name"
+----
